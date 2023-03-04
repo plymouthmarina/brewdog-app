@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        --color-primary-main: #0891b2;
+        --color-primary-light: #06b6d4;
+        --color-primary-dark: #155e75;
+        --color-secondary-main: #ef4444;
+        --color-secondary-light: #f87171;
+        --color-secondary-dark: #b91c1c;
+        --color-tertiary-main: #6b7280;
+        --color-tertiary-light: #d1d5db;
+        --color-tertiary-dark: #374151;
+    }
+}
+
 * {
     box-sizing: border-box;
     padding: 0;

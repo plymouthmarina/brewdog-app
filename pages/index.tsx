@@ -13,8 +13,12 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-            </main>
+            <section className='py-10'>
+                <h1 className='text-2xl md:text-5xl text-secondary mb-2 md:mb-5'>BrewDog</h1>
+                <p className='text-tertiary-dark text-base md:text-lg max-w-4xl'>BrewDog is a brewery, bar chain, and brand with a capital B. It launched in Aberdeenshire, Scotland in 2007, and was founded by friends James Watt and Martin Dickie. 
+                    Since then, BrewDog has expanded into a multinational company with nearly 100 locations, and more than 1,000 employees around the world.
+                </p>
+            </section>
         </>
     )
 }
