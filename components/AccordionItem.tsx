@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 type AccordionItemProps = {
     active: number;
-    handleToggle: void;
+    handleToggle: (id: number) => void;
     beer: Beer;
 };
 
@@ -27,7 +27,7 @@ const AccordionItem = ({ active, handleToggle, beer }: AccordionItemProps) => {
                 aria-controls="accordion__item__body"
                 aria-expanded={active === id}
                 role="button"
-                tabIndex="0"
+                tabIndex={0}
                 onKeyDown={(e) => handleKeyPress(e)}
                 aria-pressed="false"
                 id="accordion__item__header"
@@ -50,7 +50,7 @@ const AccordionItem = ({ active, handleToggle, beer }: AccordionItemProps) => {
                 }`}
                 style={
                     active === id
-                        ? { height: accordionBody.current.scrollHeight }
+                        ? { height: accordionBody.current?.scrollHeight ?? 0 }
                         : { height: "0px" }
                 }
             >
