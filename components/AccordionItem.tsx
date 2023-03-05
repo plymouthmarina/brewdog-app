@@ -12,12 +12,27 @@ const AccordionItem = ({ active, handleToggle, beer }: AccordionItemProps) => {
     const { id, name, first_brewed, tagline, description } = beer;
     const accordionBody = useRef<HTMLDivElement>(null);
 
+    const handleKeyPress = (e: any) => {
+        if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+            handleToggle(id);
+        }
+    };
+
     return (
         <div
             className="accordion__item mb-2 overflow-hidden rounded-md bg-tertiary-light text-base text-tertiary-dark"
             onClick={() => handleToggle(id)}
         >
-            <div className="accordion__item__header group flex h-12 cursor-pointer items-center justify-between px-6 transition-all duration-300 ease-in-out hover:bg-secondary">
+            <div
+                aria-controls="accordion__item__body"
+                aria-expanded={active === id}
+                role="button"
+                tabIndex="0"
+                onKeyDown={(e) => handleKeyPress(e)}
+                aria-pressed="false"
+                id="accordion__item__header"
+                className="accordion__item__header group flex h-12 cursor-pointer items-center justify-between rounded-t-md px-6 transition-all duration-300 ease-in-out hover:bg-secondary focus-visible:rounded-b-md"
+            >
                 <h2 className="font-bold group-hover:text-white">{name}</h2>
                 {active === id ? (
                     <MdExpandLess className="h-6 w-6 group-hover:text-white" />
@@ -27,6 +42,9 @@ const AccordionItem = ({ active, handleToggle, beer }: AccordionItemProps) => {
             </div>
             <div
                 ref={accordionBody}
+                id="accordion__item__body"
+                role="region"
+                aria-labelledby="accordion__item__header"
                 className={`accordion__item__body ${
                     active === id ? "show" : ""
                 }`}
