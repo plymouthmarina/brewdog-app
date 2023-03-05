@@ -24,7 +24,7 @@ const Accordion = ({ beers }: AccordionProps) => {
                     return (
                         <AccordionItem
                             key={index}
-                            active={active}
+                            active={active ?? 0}
                             handleToggle={handleToggle}
                             beer={beer}
                         />
