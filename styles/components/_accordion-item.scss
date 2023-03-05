@@ -1,0 +1,12 @@
+.accordion {
+    &__item {
+        &__body {
+            height: 0;
+            transition: height 0.3s ease-in-out;
+
+            &.show {
+                height: auto;
+            }
+        }
+    }
+}

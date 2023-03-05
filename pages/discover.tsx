@@ -1,12 +1,16 @@
 import { NextPage } from "next";
 import { GetStaticProps } from "next";
 import { Beer } from "@/types/Beer";
+import Accordion from "@/components/Accordion";
+import { useState } from "react";
 
 const Discover: NextPage<{ beers: Beer[] }> = ({ beers }) => {
+    const [beersData, setBeersData] = useState(beers);
+
     return (
-        <>
-            <h1>Discover</h1>
-        </>
+        <section className="flex w-full justify-center py-10">
+            <Accordion beers={beersData} />
+        </section>
     );
 };
 
