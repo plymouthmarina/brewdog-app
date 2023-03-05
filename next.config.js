@@ -6,7 +6,6 @@ const nextConfig = {
     reactStrictMode: true,
     sassOptions: {
         includePaths: [path.join(__dirname, "styles")],
-        additionalData: `@import "styles/settings.scss";`,
     },
     images: {
         domains: ["api.punkapi.com", "images.punkapi.com"],
